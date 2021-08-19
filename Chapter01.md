@@ -42,23 +42,15 @@
 
 4. 本章第 1.4 节在论述『没有免费的午餐定理』时，默认使用了『分类错误率』作为性能度量来对分类器进行评估。若换用其他性能度量 $\ell$ ，则式（1.1）将改为
 
-   $$
-   E_{ote}(\mathfrak{L}_a|X,f)
-   =\sum_h\sum_{x\in\mathcal{X}-X}P(x)\ell(h(x),f(x))P(h|X,\mathfrak{L}_a)
-   $$
-
+   ![公式01](imgs/Chapter01-1.png)
+   
    试证明『没有免费的午餐定理』仍然成立。
    
    > 构造引理：在二分类问题下，对任意性能度量指标 $\ell$ ，$\ell(h(x)=(x))+\ell(h(x)\neq f(x))=A$ ，$A$ 为某一常数。
    >
    > 证明：对于二分类问题，任意性能度量中的正确分类得分与错误分类得分应该是固定的。即
    > 
-   > $$
-   > \left\{\begin{matrix}
-   > \ell(0,0)=\ell(1,1) \\
-   > \ell(1,0)=\ell(0,1)
-   > \end{matrix}\right.
-   > $$
+   > <img src="imgs/Chapter01-2.png" alt="公式02" style="zoom: 67%;" />
    > 
    > 因此，
    > 
@@ -74,15 +66,7 @@
    > 
    > 随后，证明定理
    > 
-   > $$
-   > \begin{align}
-   > \sum_f{E_{ote}(\mathfrak{L}_a|X,f)} & 
-   > = \sum_f\sum_h\sum_{x\in\mathcal{X}-X}p(x)\ell(h(x),f(x))p(h|X,\mathfrak{L}_a) \\
-   > & =\sum_{x\in\mathcal{X}-X}p(x)\sum_hp(h|X,\mathfrak{L}_a)\sum_f\ell(h(x),f(x)) \\
-   > & =\sum_{x\in\mathcal{X}-X}p(x)\sum_hp(h|X,\mathfrak{L}_a)\left(\frac{2^{|\mathcal{X}|}\ell(h(x)=f(x))+2^{|\mathcal{X}|}\ell(h(x)\neq f(x))}{2}\right) \\
-   > & =2^{|\mathcal{X}|-1}A\sum_{x\in\mathcal{X}-X}p(x)
-   > \end{align}
-   > $$
+   > <img src="imgs/Chapter01-3.png" style="zoom:67%;" />
    > 
    > 以上计算结果与学习算法 $\mathfrak{L}_a$ 无关，定理仍然成立。
    
